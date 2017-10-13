@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AirCompany
 {
@@ -10,6 +6,16 @@ namespace AirCompany
   {
     static void Main(string[] args)
     {
+			Console.WriteLine("App started");
+
+			Airplane.MaxAltitudeAuto = 10000;
+			Airplane.MinAltitudeAuto = 2000;
+
+			Airplane airplane = new Airplane(140, 2.26F, 100);
+			//
+			Console.WriteLine(airplane.Altitude);
+
+			Console.ReadLine();
     }
   }
 }

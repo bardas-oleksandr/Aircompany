@@ -44,18 +44,18 @@ namespace AirCompany
 
     public int Down(int increment)
     {
-      if (!AutoPilotOn)
-      {
-        if (Altitude - increment < 0) return Altitude = 0;
-        return Altitude -= increment;
-      }
+			if (AutoPilotOn)
+			{
+				if (Altitude - increment > MinAltitudeAuto)
+				{
+					return Altitude -= increment;
+				}
+				if (Altitude < MinAltitudeAuto) return Altitude;
+				return Altitude = MinAltitudeAuto;
+			}
 
-      if (Altitude - increment < MinAltitudeAuto)
-      {
-        return Altitude = MinAltitudeAuto;
-      }
-
-      return Altitude -= increment;
+			if (Altitude - increment < 0) return Altitude = 0;
+			return Altitude -= increment;
     }
 
     public int SetAltitude(int targetAlitude)
